@@ -1,0 +1,94 @@
+{
+  "name": "copy-as-wsl",
+  "displayName": "Copy As WSL",
+  "description": "Copies to clipboard a Windows path as a WSL path.",
+  "version": "0.0.1",
+  "publisher": "JuniorMayhe",
+  "author": "Junior Mayhe <hi@juniormayhe.com>",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": [
+    "Productivity",
+    "Utilities"
+  ],
+  "activationEvents": [
+    "onCommand:copy-as-wsl.helloWorld",
+    "onCommand:copy-as-wsl.copyWslFolder"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-as-wsl.helloWorld",
+        "title": "Copy as WSL"
+      },
+      {
+        "command": "copy-as-wsl.copyWslFolder",
+        "title": "Copy folder as WSL"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "copy-as-wsl.helloWorld",
+          "when": "true"
+        },
+        {
+          "command": "copy-as-wsl.copyWslFolder",
+          "when": "true"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "copy-as-wsl.helloWorld",
+          "group": "10_wsl_path_actions@1",
+          "when": "true"
+        },
+        {
+          "command": "copy-as-wsl.copyWslFolder",
+          "group": "10_wsl_path_actions@2",
+          "when": "true"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "copy-as-wsl.helloWorld",
+          "group": "10_wsl_path_actions@1",
+          "when": "true"
+        },
+        {
+          "command": "copy-as-wsl.copyWslFolder",
+          "group": "10_wsl_path_actions@2",
+          "when": "true"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.101.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "ts-loader": "^9.5.2",
+    "webpack": "^5.99.7",
+    "webpack-cli": "^6.0.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
