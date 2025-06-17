@@ -17,6 +17,10 @@
     "onCommand:copy-as-wsl.helloWorld",
     "onCommand:copy-as-wsl.copyWslFolder"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juniormayhe/extension-copy-as-wsl.git"
+  },
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
