@@ -36,9 +36,9 @@ function convertWindowsPathToWslPath(windowsPath: string): string {
 export function activate(context: vscode.ExtensionContext) {
 	console.log('Congratulations, "copy-as-wsl" is now active!');
 
-	// Register the command 'copy-as-wsl.helloWorld' (now "Copy as WSL")
+	// Register the command 'copy-as-wsl.copyWsl' (now "Copy as WSL")
 	let disposableCopyPath = vscode.commands.registerCommand(
-		'copy-as-wsl.helloWorld', // This command ID corresponds to "Copy as WSL"
+		'copy-as-wsl.copyWsl', // This command ID corresponds to "Copy as WSL"
 		async (uri: vscode.Uri) => {
 			if (uri && uri.fsPath) {
 				const fullWindowsPath = uri.fsPath;
